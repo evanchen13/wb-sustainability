@@ -153,8 +153,10 @@ def return_figures():
                 )
     
     # create third and fourth graphs - bar charts of top five countries in renewable energy consumption and CO2 emissions for the most recent year
-    renewable_consumption_sorted = renewable_consumption.query('year == @end_year').sort_values('value', ascending=False)
-    co2_emissions_sorted = co2_emissions.query('year == @end_year').sort_values('value')
+    renewable_consumption_recent = renewable_consumption.query('year == @end_year')
+    co2_emissions_recent = co2_emissions.query('year == @end_year')
+    renewable_consumption_sorted = renewable_consumption_recent.sort_values('value', ascending=False)
+    co2_emissions_sorted = co2_emissions_recent.sort_values('value')
     df_list = [renewable_consumption_sorted, co2_emissions_sorted]
     
     graphs_bar = []
@@ -182,8 +184,6 @@ def return_figures():
                 )
     
     # create fifth graph - scatter plot of renewable energy consumption and CO2 emissions for the most recent year
-    renewable_consumption_recent = renewable_consumption.query('year == @end_year')
-    co2_emissions_recent = co2_emissions.query('year == @end_year')
     env_metrics_recent = renewable_consumption_recent.merge(co2_emissions_recent, how='inner', on=['country', 'year'])
     
     graph_five = []
