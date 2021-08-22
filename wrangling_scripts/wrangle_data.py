@@ -85,14 +85,18 @@ def clean_data(indicator, countries=['all'], params={'format': 'json', 'per_page
     return df
 
 def return_figures():
-    """Creates three plotly visualizations
+    """Creates five plotly visualizations
 
     Args:
         None
 
     Returns:
-        list (dict): list containing the three plotly visualizations
-
+        list (dict): list containing the five plotly visualizations, as follows
+                     1. line chart of renewable energy consumption over time for the top five economies
+                     2. line chart of CO2 emissions over time for the top five economies
+                     3. bar chart of top five countries in renewable energy consumption for the most recent year
+                     4. bar chart of top five countries in CO2 emissions for the most recent year
+                     5. scatter plot of renewable energy consumption and CO2 emissions for the most recent year
     """
     
     renewable_consumption = clean_data(indicator='EG.FEC.RNEW.ZS')
