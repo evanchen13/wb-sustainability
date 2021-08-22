@@ -204,10 +204,9 @@ def return_figures():
     
     # append all charts to the figures list
     figures = []
-    figures.append(dict(data=graph_one, layout=layout_one))
-    figures.append(dict(data=graph_two, layout=layout_two))
-    figures.append(dict(data=graph_three, layout=layout_three))
-    figures.append(dict(data=graph_four, layout=layout_four))
-    figures.append(dict(data=graph_five, layout=layout_five))
+    graphs = [graph_one, graph_two, graph_three, graph_four, graph_five]
+    layouts = [layout_one, layout_two, layout_three, layout_four, layout_five]
+    for i in range(5):
+        figures.append(dict(data=graphs[i], layout=layouts[i]))
 
     return figures
